@@ -1,4 +1,4 @@
-# SSRF (Server Side Request Forgery)
+# 🔀 SSRF (Server Side Request Forgery)
 
 SSRF refers to an attack where an attacker is able to send crafted request from vulnerable web application.
 
