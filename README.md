@@ -34,7 +34,32 @@ Example: `http://example.com/profile/php?uri=http://externalwebsite.com `
 
 3. SSRF through RFI: `http://example.com/profile?file=https://yourwebsite.com/test.html`  (Create malicioud file **test.html** with contain this ` <script>alert(1)</script> ` script and host this file at server.
 
+## Remediation
+1. From Application layer:
+
+ - Sanitize and validate all client-supplied input data
+ - Enforce the URL schema, port, and destination with a positive allow list
+ - Do not send raw responses to clients
+ - Disable HTTP redirections
+ - Be aware of the URL consistency to avoid attacks such as DNS rebinding and “time of check, time of use” (TOCTOU) race conditions
+
+Do not mitigate SSRF via the use of a deny list or regular expression. Attackers have payload lists, tools, and skills to bypass deny lists.
+
+2. From Network layer
+
+ - Segment remote resource access functionality in separate networks to reduce the impact of SSRF.
+ - Enforce “deny by default” firewall policies or network access control rules to block all but essential intranet traffic.
+    Hints:
+    ~ Establish an ownership and a lifecycle for firewall rules based on applications.
+    ~ Log all accepted and blocked network flows on firewalls (see A09:2021-Security Logging and Monitoring Failures).
+
+3. Additional Measures to consider:
+
+ - Don't deploy other security relevant services on front systems (e.g. OpenID). Control local traffic on these systems (e.g. localhost)
+ - For frontends with dedicated and manageable user groups use network encryption (e.g. VPNs) on independant systems to consider very high protection needs
+
 
 ## Refrence 
 
 - https://portswigger.net/web-security/ssrf
+- https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/
