@@ -35,3 +35,6 @@ Example: `http://example.com/profile/php?uri=http://externalwebsite.com `
 3. SSRF through RFI: `http://example.com/profile?file=https://yourwebsite.com/test.html`  (Create malicioud file **test.html** with contain this ` <script>alert(1)</script> ` script and host this file at server.
 
 
+## Refrence 
+
+- https://portswigger.net/web-security/ssrf
