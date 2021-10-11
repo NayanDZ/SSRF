@@ -34,7 +34,7 @@ Example: `http://example.com/profile/php?uri=http://externalwebsite.com `
 
 3. SSRF through RFI: `http://example.com/profile?file=https://yourwebsite.com/test.html`  (Create malicioud file **test.html** with contain this ` <script>alert(1)</script> ` script and host this file at server.
 
-## Remediation
+## ⛑️ Remediation
 1. From Application layer:
 
  - Sanitize and validate all client-supplied input data
@@ -59,7 +59,7 @@ Do not mitigate SSRF via the use of a deny list or regular expression. Attackers
  - For frontends with dedicated and manageable user groups use network encryption (e.g. VPNs) on independant systems to consider very high protection needs
 
 
-## Refrence 
+## 🔗 Refrence 
 
 - https://portswigger.net/web-security/ssrf
 - https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/
