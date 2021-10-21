@@ -18,7 +18,7 @@ Find any parameter that may have some kind of external interaction or they can i
 
 Example: `http://example.com/profile/php?uri=http://externalwebsite.com `
 
-## Possible Related parameter for SSRF
+## Possible related parameter for SSRF
 
 ```
 | dest | redirect | uri | path | continue | url | window | next | data | reference | site | html | val | validate 
